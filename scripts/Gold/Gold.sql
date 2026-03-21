@@ -10,7 +10,8 @@ create or replace procedure gold.gold_prd_procudure()
 language plpgsql
 as $$
 begin
-	drop view IF EXISTS gold.gold_product_layer;
+	drop view IF EXISTS gold.gold_product_layer
+	else
 	create view gold.gold_product_layer as
 		select 
 				prd_id as Product_ID,
@@ -40,7 +41,8 @@ create or replace procedure gold.gold_Customer_procudure()
 language plpgsql
 as $$
 begin
-	drop view IF EXISTS gold.gold_Customer_layer;
+	drop view IF EXISTS gold.gold_Customer_layer
+	else
 	create view gold.gold_Customer_layer as
 		select 
 				cst_id as Customer_ID,
@@ -70,7 +72,8 @@ create or replace procedure gold.gold_Sales_Data_Procedure()
 language plpgsql
 as $$
 begin
-	drop view IF EXISTS gold.gold_Sales_Data;
+	drop view IF EXISTS gold.gold_Sales_Data
+	else
 	create view gold.gold_Sales_Data as
 		select 
 				sls_ord_num as Sales_Order_Num,
@@ -99,4 +102,7 @@ call gold.gold_Sales_Data_Procedure()
 select * from gold.gold_Sales_Data
 
 /* Gold Layer for All Sales Data Ends*/
+
+
+
 
