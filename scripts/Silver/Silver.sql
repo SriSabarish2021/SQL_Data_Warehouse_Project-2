@@ -10,7 +10,8 @@ create or replace procedure silver.silver_customer_data_all()
 language plpgsql
 as $$
 begin
-	drop table silver.customer_CRM;
+	drop table IF EXISTS silver.customer_CRM
+	else
 	CREATE TABLE silver.customer_CRM(
 		cst_id VARCHAR(50),
 		cst_key varchar(50),
@@ -104,7 +105,8 @@ create or replace procedure silver.silver_product_data_all()
 language plpgsql
 as $$
 begin
-	drop table silver.product_data;
+	drop table IF EXISTS silver.product_data
+	else
 	CREATE TABLE silver.product_data(
 		prd_id VARCHAR(50),
 		prd_key varchar(50),
@@ -190,7 +192,8 @@ create or replace procedure silver.sales_data_all()
 language plpgsql
 as $$
 begin
-	drop table silver.sales_data;
+	drop table IF EXISTS silver.sales_data
+	else
 	CREATE TABLE silver.sales_data(
 		sls_ord_num varchar(50),
 		sls_prd_key varchar(50),
